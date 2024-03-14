@@ -1,0 +1,16 @@
+.cart--item-list-container {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-bottom: 5rem;
+}
+
+.cart--item-list-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cart--item-list-price > p {
+    font-weight: bold;
+}

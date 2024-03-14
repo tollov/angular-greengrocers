@@ -1,0 +1,11 @@
+<li *ngIf="itemData">
+    <img
+      class="cart--item-icon"
+      [src]='"assets/icons/" + itemData.item.id + ".svg"'
+      alt="beetroot"
+    />
+    <p>beetroot</p>
+    <button class="quantity-btn remove-btn center" (click)="onDecrement()">-</button>
+    <span class="quantity-text center">{{itemData.quantity}}</span>
+    <button class="quantity-btn add-btn center" (click)="onIncrement()">+</button>
+</li>

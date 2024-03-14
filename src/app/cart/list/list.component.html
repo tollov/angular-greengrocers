@@ -1,0 +1,12 @@
+<div class="cart--item-list-container">
+    <ul class="item-list cart--item-list">
+        <ng-container *ngFor="let item of items">
+            <app-cart-item [itemData]="item"/>
+        </ng-container>
+    </ul>
+</div>
+
+<div class="cart--item-list-price">
+    <p>Total</p>
+    <p>{{totalPrice | currency: 'GBP'}}</p>
+</div>
