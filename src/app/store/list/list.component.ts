@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { Subscription } from 'rxjs';
 import { GroceryItem } from 'src/app/models/item';
+import { StoreService } from 'src/app/store.service';
 
 @Component({
   selector: 'app-store-list',
@@ -8,16 +9,21 @@ import { GroceryItem } from 'src/app/models/item';
   styleUrls: ['./list.component.css']
 })
 export class StoreListComponent {
+  constructor(private readonly storeService : StoreService) {}
   items : GroceryItem[] = [];
-  constructor(private readonly apiService : ApiService) {}
+  private subscription: Subscription = new Subscription();
+
 
   ngOnInit() {
-    this.loadItems();
+    this.subscription = this.storeService.items.subscribe(
+      (items:GroceryItem[]) => {
+        this.items = items;
+      }
+    );
+    this.storeService.fetchAllItems();
   }
 
-  loadItems() : void {
-    this.apiService.getGroceryItems().then(items => {this.items = items}).catch(error => {
-      console.log('Error fetching grocery items: ', error)
-    })
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

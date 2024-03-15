@@ -3,19 +3,22 @@ import { CommonModule } from '@angular/common';
 import { StoreListComponent } from './list/list.component';
 import { StoreItemComponent } from './item/item.component';
 import { CartService } from '../cart.service';
+import { StoreNavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     StoreListComponent,
-    StoreItemComponent
+    StoreItemComponent,
+    StoreNavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule
   ],
   exports: [
-    StoreListComponent
+    StoreListComponent, StoreNavbarComponent
   ]
 })
 export class StoreModule { }

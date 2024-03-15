@@ -1,0 +1,13 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+    background-color: lightgreen;
+    gap: 5px;
+}
+
+select {
+    border: none;
+    border-radius: 1px;
+}

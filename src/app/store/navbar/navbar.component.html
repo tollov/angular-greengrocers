@@ -1,0 +1,17 @@
+<nav>
+    <div>
+        <label for="orderBy">Order by:</label>
+        <select id="orderBy" (change)="onOrderByChange($event)">
+            <option value="" selected>--</option>
+            <option *ngFor="let option of orderByOptions" [value]="option">{{ option }}</option>
+        </select>
+        </div>
+        
+        <div>
+        <label for="filterBy">Filter by:</label>
+        <select id="filterBy" (change)="onFilterByChange($event)">
+            <option value="" selected>--</option>
+            <option *ngFor="let option of filterByOptions" [value]="option">{{ option }}</option>
+        </select>
+        </div>
+</nav>
